@@ -5,10 +5,10 @@ const questions = [
     { q: "Rahul ki age kitni hai? 👦", a: ["18", "20", "19"], correct: 0 },
     { q: "Humari fav cheez kya hai? ✨", a: ["Ek dusre ka saath", "Ladhna", "Sirf Sona"], correct: 0 },
     { q: "Rahul ka pura naam kya hai? 👑", a: ["Rahul Singh", "Rahul Singh Tomar", "Rahul Tomar"], correct: 1 },
-    { q: "Kya Rahul Sakshi se pyar karta hai? ❤️", a: ["Thoda sa", "Nahi", "Baut Jyadaaaa"], correct: 2 },
+    { q: "Kya Rahul apni jaan se pyar karta hai? ❤️", a: ["Thoda sa", "Nahi", "Baut Jyadaaaa"], correct: 2 },
     { q: "Hamari pehli baat kab hui thi? 📱", a: ["Yaad nahi", "Special Day", "Kal hi"], correct: 1 },
-    { q: "Rahul ko kya pasand hai? 🧸", a: ["Sakshi ki smile", "Gaming", "Bas Khana"], correct: 0 },
-    { q: "Sakshi Rahul ke liye kya hai? 👸", a: ["Sirf Dost", "Sab Kuch (My Queen)", "Pata nahi"], correct: 1 },
+    { q: "Rahul ko kya pasand hai? 🧸", a: ["jaan ki smile", "Gaming", "Bas Khana"], correct: 0 },
+    { q: "jaan Rahul ke liye kya hai? 👸", a: ["Sirf Dost", "Sab Kuch (My Queen)", "Pata nahi"], correct: 1 },
     { q: "Hamara bond kaisa hai? 💖", a: ["Normal", "Boring", "Sabse Best aur Cute"], correct: 2 }
 ];
 
@@ -175,4 +175,5 @@ function verifyPass() {
         // Shake effect agar password galat ho
         gsap.to("#password-modal .glass", { x: 10, duration: 0.1, yoyo: true, repeat: 5 });
     }
+
 }
