@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Queen Sakshi | From Rahul</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="intro-overlay" class="bg-white/90 backdrop-blur-md">
+    <div class="main-heart text-[10rem] drop-shadow-[0_0_35px_rgba(255,77,109,0.7)]" onclick="unlock()">💖</div>
+    
+    <h2 style="font-family: 'Great Vibes', cursive;" 
+        class="text-6xl md:text-7xl text-[#ff4d6d] mt-10 tracking-wider animate-pulse">
+        Hello Meri Jaan ...
+    </h2>
+
+    <div class="mt-8 relative group cursor-pointer" onclick="unlock()">
+        <div class="absolute -inset-1 bg-gradient-to-r from-pink-600 to-red-600 rounded-full blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+        <button class="relative px-8 py-3 bg-pink-500 rounded-full leading-none flex items-center divide-x divide-gray-600">
+            <span class="pr-6 text-white font-bold tracking-[2px] text-sm uppercase">Andeer chalo ❤️</span>
+        </button>
+    </div>
+</div>
+
+
+    <audio id="bg-music" loop><source src="Seet Lehar(KoshalWorld.Com).mp3" type="audio/mpeg"></audio>
+    <canvas id="canvas"></canvas>
+
+    <div class="nav-container">
+      <nav class="nav-pill">
+    <a href="javascript:void(0)" onclick="checkPassword('home')" class="nav-link">Jaan</a>
+    <a href="javascript:void(0)" onclick="checkPassword('gallery')" class="nav-link">Yaadein</a>
+    <a href="javascript:void(0)" onclick="checkPassword('game')" class="nav-link">Game khelo</a>
+    <a href="javascript:void(0)" onclick="checkPassword('calculator')" class="nav-link">Love %</a>
+</nav>
+
+<div id="password-modal" class="fixed inset-0 z-[2000] hidden flex items-center justify-center bg-black/60 backdrop-blur-md">
+    <div class="glass p-8 text-center max-w-sm w-full border-2 border-pink-400 m-4">
+        <h3 class="text-xl font-bold text-pink-600 mb-4">Enter Secret Code 🤫</h3>
+        <p class="text-xs text-pink-400 mb-4 italic">Hint: Jo tum mujhse hamesha sunna chahti ho...</p>
+        <input type="password" id="passInput" placeholder="Yaha likho..." class="w-full p-3 rounded-xl border-2 border-pink-200 outline-none focus:border-pink-500 mb-4 text-center">
+        <button onclick="verifyPass()" class="btn-cute w-full">Unlock Section ❤️</button>
+        <p id="pass-error" class="text-red-500 text-xs mt-2 hidden">Galat hai! Phir se socho... 🥺</p>
+    </div>
+</div>
+    </div>
+
+   <div id="msg-tab">
+        <div class="tab-btn" onclick="toggleTab()">JANU ISSE KHOLO</div>
+        <div class="p-6 overflow-y-auto h-full text-pink-900 bg-white rounded-r-[30px]">
+            <h3 class="font-[Dancing Script] text-3xl text-pink-600 mb-4 border-b-2 border-pink-100 pb-2 text-center">Rahul's Secret Diary 👑</h3>
+            
+            <div class="space-y-6 italic">
+                <p class="text-sm font-semibold text-pink-500 border-l-2 border-pink-300 pl-2">"Sakshi, kya tumhara naam Google hai? Kyunki jo bhi main dhoond raha hoon, wo sab tumhare paas hai! 😉"</p>
+                
+                <p class="text-sm">"Log kehte hain Faridabad bahut crowded hai, par mere liye toh ye poora shehar khali hai agar tum mere saath nahi ho. ❤️"</p>
+
+                <div class="bg-pink-100 p-3 rounded-xl shadow-inner text-center">
+                    <p class="text-xs font-bold text-pink-700">"Pata hai humari jodi kaisi hai? Jaise 'Chai aur Parle-G'... ek ke bina dusra adhoora hai! ☕🍪"</p>
+                </div>
+
+                <p class="text-sm">"Tumhare khayalo se fursat nahi milti, warna hum bhi duniya ghoomne ka shauk rakhte the. ✨"</p>
+
+                <div class="bg-gradient-to-r from-pink-50 to-white p-3 rounded-lg border-r-4 border-pink-400">
+                    <p class="text-sm text-pink-600 font-bold">"Agar tum camera hoti, toh main hamesha smile karta! 😊"</p>
+                </div>
+
+                <p class="text-sm">"Talaash karoon toh koi mil hi jayega, Magar tumhari tarah kaun mujhe chahega? Main hamesha tumhara hoon, aur tum meri Queen! 👸❤️"</p>
+
+                <div class="text-center py-2">
+                    <p class="text-lg text-pink-500">❤️❤️❤️❤️❤️</p>
+                </div>
+
+                <p class="text-right font-[Dancing Script] text-2xl text-pink-600 mt-2">— apka sevak</p>
+            </div>
+        </div>
+    </div>
+
+<section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20">
+    <div class="py-12 px-2 overflow-visible">
+        <h1 style="font-family: 'Great Vibes', cursive; line-height: 1.6;" 
+            class="text-7xl sm:text-9xl font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d6d] via-[#ff8fa3] to-[#c9184a] drop-shadow-[0_10px_25px_rgba(255,77,109,0.4)] inline-block">
+            Rahul <span class="text-[#ff4d6d] drop-shadow-none mx-4">❤️</span> Sakshi
+        </h1>
+    </div>
+
+    <div class="glass p-10 max-w-2xl border border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white/40 backdrop-blur-xl rounded-[40px] transform hover:rotate-0 transition-all duration-500">
+        <p class="text-2xl sm:text-3xl text-pink-900 italic font-medium leading-relaxed">
+            "Zindagi ke har mod par tera saath chahiye,<br> 
+            <span class="text-[#ff4d6d] font-bold not-italic">bas tera hath mere hath mein chahiye.</span>"
+        </p>
+    </div>
+
+    <button onclick="makeMagic()" 
+        class="btn-cute mt-12 bg-gradient-to-r from-[#ff4d6d] to-[#ff758c] text-white px-12 py-4 rounded-full text-xl font-bold shadow-[0_15px_35px_rgba(255,77,109,0.5)] border-4 border-white hover:scale-110 active:scale-95 transition-all duration-300">
+        Blossom Barish 🌸
+    </button>
+</section>
+
+
+    <section id="gallery" class="py-20">
+        <div class="text-center mb-16 px-4 overflow-visible">
+    <h2 style="font-family: 'Great Vibes', cursive; line-height: 1.5;" 
+        class="text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d6d] to-[#c9184a] drop-shadow-[0_5px_15px_rgba(255,77,109,0.3)] inline-block">
+        Humari Pyaari Yaadein
+    </h2>
+    <div class="h-1 w-32 bg-gradient-to-r from-transparent via-[#ff4d6d] to-transparent mx-auto mt-2 opacity-50"></div>
+</div>
+       <div class="carousel-container">
+    <div class="carousel" id="carousel">
+        <div class="carousel-item">
+            <img src="photos/IMG_20250604_125524_634.jpg" alt="Memory 1">
+            <div class="photo-caption">Meri Jaan ❤️</div>
+        </div>
+        <div class="carousel-item">
+            <img src="photos/Snapchat-39678334.jpg" alt="Memory 2">
+            <div class="photo-caption">Cute Smile ✨</div>
+        </div>
+        <div class="carousel-item">
+            <img src="photos/Snapchat-710885917.jpg" alt="Memory 3">
+            <div class="photo-caption">My World 🌎</div>
+        </div>
+        <div class="carousel-item">
+            <img src="photos/Snapchat-1245525480.jpg" alt="Memory 4">
+            <div class="photo-caption">jaanuu 👸</div>
+        </div>
+        <div class="carousel-item">
+            <img src="photos/Snapchat-1256812708.jpg" alt="Memory 5">
+            <div class="photo-caption">Hamesha Saath ❤️</div>
+        </div>
+    </div>
+</div>
+        <p class="text-center text-pink-500 font-bold animate-bounce mt-4">TAP CARDS TO ROTATE 🌍✨</p>
+    </section>
+
+ <section id="game" class="min-h-screen flex flex-col items-center justify-center py-20 px-4 relative overflow-visible">
+    
+    <div id="quiz-start-screen" class="text-center z-10">
+        <div class="relative inline-block mb-8 group">
+            <div class="absolute -inset-4 bg-pink-500 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-1000 animate-pulse"></div>
+            <div class="relative text-9xl transform group-hover:rotate-12 transition-transform cursor-default">🎮</div>
+        </div>
+        
+        <h2 style="font-family: 'Great Vibes', cursive; line-height: 1.5;" 
+            class="text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d6d] to-[#c9184a] mb-10 drop-shadow-md">
+            Sakshi, Kya Tum Taiyaar Ho?
+        </h2>
+        
+        <p class="text-pink-400 font-bold tracking-[3px] mb-8 uppercase text-sm animate-bounce">10 Sawal • Sirf Mere Baare Mein</p>
+        
+        <button onclick="openGame()" class="btn-cute px-12 py-4 bg-gradient-to-r from-[#ff4d6d] to-[#ff758c] text-white rounded-full font-black shadow-2xl hover:scale-110 transition-all border-4 border-white">
+            CHALO GAME KHELE! 🚀
+        </button>
+    </div>
+
+    <div id="quiz-container" class="glass p-1 w-full max-w-xl hidden opacity-0 scale-90 rounded-[40px] shadow-[0_0_50px_rgba(255,77,109,0.2)] bg-gradient-to-br from-white/40 to-white/10 border border-white/50 backdrop-blur-2xl">
+        <div class="p-8 md:p-12 relative overflow-hidden">
+            <div id="question-box">
+                <div class="flex justify-between items-center mb-10">
+                    <span class="bg-pink-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow-md uppercase tracking-wider">Level: Love Expert</span>
+                    <p id="q-count" class="text-pink-600 font-black text-sm"></p>
+                </div>
+                
+                <p id="q-text" class="text-2xl sm:text-3xl font-bold mb-10 text-center text-pink-900 leading-snug min-h-[80px]"></p>
+                
+                <div id="options-grid" class="grid grid-cols-1 gap-5">
+                    </div>
+            </div>
+
+            <div id="final-win" class="hidden text-center py-10">
+                <div class="relative inline-block mb-6">
+                    <div class="absolute -inset-4 bg-yellow-400 rounded-full blur opacity-40 animate-spin-slow"></div>
+                    <div class="relative text-8xl">🏆</div>
+                </div>
+                <h3 style="font-family: 'Great Vibes', cursive;" class="text-6xl text-pink-600 mb-6">Perfect 10/10 Score!</h3>
+                <div class="glass bg-pink-50 p-6 rounded-2xl border-2 border-pink-200 shadow-inner">
+                    <p class="text-pink-800 text-lg font-bold italic leading-relaxed">
+                        "Sakshi, tum sach mein mujhe sabse zyada jaanti ho. ❤️ <br>
+                        <span class="text-2xl block mt-4 font-black uppercase tracking-tighter text-[#ff4d6d]">I LOVE YOU FOREVER!</span>"
+                    </p>
+                </div>
+                <button onclick="location.reload()" class="mt-8 text-pink-400 underline font-bold hover:text-pink-600 transition">Play Again?</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section id="calculator" class="py-20 flex flex-col items-center relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
+        <div class="absolute top-10 left-10 animate-bounce text-4xl">💖</div>
+        <div class="absolute bottom-20 right-10 animate-pulse text-4xl">✨</div>
+    </div>
+
+    <div class="glass p-10 text-center max-w-lg w-full mx-4 border-2 border-white/50 shadow-[0_0_40px_rgba(255,77,109,0.25)] rounded-[50px] z-10">
+        <h3 style="font-family: 'Great Vibes', cursive;" class="text-6xl text-[#ff4d6d] mb-8">Love Meter</h3>
+        
+        <div class="space-y-4">
+            <div class="relative">
+                <input type="text" id="name1" value="Rahul" readonly class="p-4 rounded-2xl bg-pink-50/50 border-2 border-pink-200 w-full text-center font-bold text-pink-600 cursor-not-allowed">
+                <span class="absolute right-4 top-4">🤴</span>
+            </div>
+
+            <div class="text-2xl font-bold text-pink-400 animate-pulse">+</div>
+
+            <div class="relative">
+                <input type="text" id="name2" placeholder="Sakshi" class="p-4 rounded-2xl border-2 border-pink-300 w-full text-center outline-none focus:border-[#ff4d6d] focus:ring-4 focus:ring-pink-100 transition-all font-bold text-pink-800 shadow-inner">
+                <span class="absolute right-4 top-4">👸</span>
+            </div>
+        </div>
+
+        <button onclick="calcLove()" class="btn-cute mt-8 w-full py-4 bg-gradient-to-r from-[#ff4d6d] to-[#ff758c] text-white rounded-full font-black text-lg shadow-xl hover:shadow-pink-300/50 transform hover:-translate-y-1 transition-all border-b-4 border-pink-800">
+            CALCULATE DESTINY ❤️
+        </button>
+
+        <div id="love-res-container" class="mt-10 hidden transition-all duration-700">
+            <div id="love-res" class="text-7xl font-black text-[#ff4d6d] drop-shadow-lg mb-2"></div>
+            <p id="love-msg" class="text-pink-800 font-medium italic text-sm px-4"></p>
+            
+            <div class="w-full bg-pink-100 h-3 rounded-full mt-6 overflow-hidden border border-pink-200">
+                <div id="love-bar" class="h-full bg-gradient-to-r from-pink-400 to-red-500 transition-all duration-1000" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div id="sad-popup">
+        <p class="text-6xl">🥺</p>
+        <p class="text-xl font-bold text-pink-700 mt-4">Nhiiii... Sahi jawab do!</p>
+        <button onclick="hideSad()" class="mt-6 btn-cute">Try Again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
